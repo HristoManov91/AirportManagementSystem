@@ -18,6 +18,7 @@ public class Airplane extends BaseEntity {
     private LocalDate dateOfManufacture;
     private Integer cockpitCrew;
     private List<Seat> seats;
+    private List<Flight> flights;
     private BigDecimal maxTakeoffWeight;
     private BigDecimal fuelCapacity;
     private BigDecimal fuelConsumption;
@@ -102,6 +103,16 @@ public class Airplane extends BaseEntity {
 
     public Airplane setSeats(List<Seat> seats) {
         this.seats = seats;
+        return this;
+    }
+
+    @OneToMany(mappedBy = "airplane")
+    public List<Flight> getFlights() {
+        return flights;
+    }
+
+    public Airplane setFlights(List<Flight> flights) {
+        this.flights = flights;
         return this;
     }
 

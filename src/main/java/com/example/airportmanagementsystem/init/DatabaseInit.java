@@ -25,7 +25,7 @@ public class DatabaseInit implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        airportService.initAirports();
-        airlineService.initAirline();
+//        airportService.initAirports();
+//        airlineService.initAirline();
     }
 }

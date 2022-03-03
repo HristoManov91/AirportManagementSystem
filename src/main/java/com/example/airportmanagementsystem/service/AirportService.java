@@ -1,11 +1,14 @@
 package com.example.airportmanagementsystem.service;
 
+import com.example.airportmanagementsystem.model.binding.AddFlightBindingModel;
 import com.example.airportmanagementsystem.model.binding.CreateAirportBindingModel;
 import com.example.airportmanagementsystem.model.entity.Airport;
 
 public interface AirportService {
 
-    void initAirports();
-
-    Airport createAirport(CreateAirportBindingModel createAirportBindingModel);
+//    void initAirports();
+//
+//    Airport createAirport(CreateAirportBindingModel createAirportBindingModel);
+//
+//    String addFlight(AddFlightBindingModel addFlightBindingModel);
 }

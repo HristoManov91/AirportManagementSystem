@@ -6,9 +6,11 @@ import com.example.airportmanagementsystem.model.entity.Airline;
 
 public interface AirlineService {
 
-    void initAirline();
+//    void initAirline();
+//
+//    Airline createAirline(CreateAirlineBindingModel createAirlineBindingModel);
+//
+//    void addAirplane(String airlineName , CreateAirplaneBindingModel createAirplaneBindingModel);
 
-    Airline createAirline(CreateAirlineBindingModel createAirlineBindingModel);
 
-    void addAirplane(String airlineName , CreateAirplaneBindingModel createAirplaneBindingModel);
 }

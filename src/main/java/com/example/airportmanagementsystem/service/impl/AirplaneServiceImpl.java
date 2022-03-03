@@ -12,29 +12,33 @@ import org.springframework.stereotype.Service;
 public class AirplaneServiceImpl implements AirplaneService {
 
     private final AirplaneRepo airplaneRepo;
-    private final SeatService seatService;
 
-    public AirplaneServiceImpl(AirplaneRepo airplaneRepo, SeatService seatService) {
+    public AirplaneServiceImpl(AirplaneRepo airplaneRepo) {
         this.airplaneRepo = airplaneRepo;
-        this.seatService = seatService;
     }
 
-    @Override
-    public Airplane createAirplane(CreateAirplaneBindingModel createAirplaneBindingModel) {
-        Airplane airplane = new Airplane()
-                .setManufacture(createAirplaneBindingModel.getManufacture())
-                .setModel(createAirplaneBindingModel.getModel())
-                .setARN(createAirplaneBindingModel.getARN())
-                .setDateOfManufacture(createAirplaneBindingModel.getDateOfManufacture())
-                .setCockpitCrew(createAirplaneBindingModel.getCockpitCrew())
-                .setMaxTakeoffWeight(createAirplaneBindingModel.getMaxTakeoffWeightInKilograms())
-                .setFuelCapacity(createAirplaneBindingModel.getFuelCapacityInLitres())
-                .setFuelConsumption(createAirplaneBindingModel.getFuelConsumptionInLitres())
-                .setMaxSpeed(createAirplaneBindingModel.getMaxSpeedInKilometres())
-                .setTypicalRange(createAirplaneBindingModel.getTypicalRangeInKilometres())
-                .setStatus(AirplaneStatusEnum.READY)
-                .setSeats(seatService.createSeats(createAirplaneBindingModel.getCountOfSeats()));
-
-        return airplaneRepo.save(airplane);
-    }
+//    @Override
+//    public Airplane createAirplane(CreateAirplaneBindingModel createAirplaneBindingModel) {
+//        Airplane airplane = new Airplane()
+//                .setManufacture(createAirplaneBindingModel.getManufacture())
+//                .setModel(createAirplaneBindingModel.getModel())
+//                .setARN(createAirplaneBindingModel.getARN())
+//                .setDateOfManufacture(createAirplaneBindingModel.getDateOfManufacture())
+//                .setCockpitCrew(createAirplaneBindingModel.getCockpitCrew())
+//                .setMaxTakeoffWeight(createAirplaneBindingModel.getMaxTakeoffWeightInKilograms())
+//                .setFuelCapacity(createAirplaneBindingModel.getFuelCapacityInLitres())
+//                .setFuelConsumption(createAirplaneBindingModel.getFuelConsumptionInLitres())
+//                .setMaxSpeed(createAirplaneBindingModel.getMaxSpeedInKilometres())
+//                .setTypicalRange(createAirplaneBindingModel.getTypicalRangeInKilometres())
+//                .setStatus(AirplaneStatusEnum.READY)
+//                .setSeats(seatService.createSeats(createAirplaneBindingModel.getCountOfSeats()));
+//
+//        return airplaneRepo.save(airplane);
+//    }
+//
+//    @Override
+//    public Airplane findByARN(String airplaneARN) {
+//        return airplaneRepo.findByARN(airplaneARN)
+//                .orElseThrow(() -> new IllegalArgumentException(airplaneARN));
+//    }
 }

@@ -10,8 +10,9 @@ public class Airport extends BaseEntity {
 
     private String name;
     private String city;
+    private String country;
     private String website;
-    private List<Airplane> airplanes = new ArrayList<>();
+    private List<Flight> flights = new ArrayList<>();
     // terminals
     // tracks
     // capacity
@@ -41,6 +42,16 @@ public class Airport extends BaseEntity {
         return this;
     }
 
+    @Column(nullable = false)
+    public String getCountry() {
+        return country;
+    }
+
+    public Airport setCountry(String country) {
+        this.country = country;
+        return this;
+    }
+
     @Column(unique = true)
     public String getWebsite() {
         return website;
@@ -51,13 +62,13 @@ public class Airport extends BaseEntity {
         return this;
     }
 
-    @OneToMany
-    public List<Airplane> getAirplanes() {
-        return airplanes;
+    @OneToMany // better connection
+    public List<Flight> getFlights() {
+        return flights;
     }
 
-    public Airport setAirplanes(List<Airplane> airplanes) {
-        this.airplanes = airplanes;
+    public Airport setFlights(List<Flight> flights) {
+        this.flights = flights;
         return this;
     }
 }

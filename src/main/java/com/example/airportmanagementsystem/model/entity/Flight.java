@@ -4,33 +4,34 @@ import com.example.airportmanagementsystem.model.entity.enums.FlightStatusEnum;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.OffsetTime;
 
 @Entity
 @Table(name = "flights")
 public class Flight extends BaseEntity {
 
-    private Airport fromAirport;
+    private Destination destination;
     private LocalDateTime departure;
-    private Airport toAirport;
     private LocalDateTime arrival;
     private Airplane airplane;
     private Boolean isFull;
     private FlightStatusEnum status;
     private OffsetTime boarding;
-    private String flightDuration; // A time zone library can be used
+    private LocalTime flightDuration; // A time zone library can be used
+    // distance (need library for this)
 
 
     public Flight() {
     }
 
-    @ManyToOne
-    public Airport getFromAirport() {
-        return fromAirport;
+    
+    public Destination getDestination() {
+        return destination;
     }
 
-    public Flight setFromAirport(Airport fromAirport) {
-        this.fromAirport = fromAirport;
+    public Flight setDestination(Destination destination) {
+        this.destination = destination;
         return this;
     }
 
@@ -44,16 +45,6 @@ public class Flight extends BaseEntity {
         return this;
     }
 
-    @ManyToOne
-    public Airport getToAirport() {
-        return toAirport;
-    }
-
-    public Flight setToAirport(Airport toAirport) {
-        this.toAirport = toAirport;
-        return this;
-    }
-
     @Column(nullable = false)
     public LocalDateTime getArrival() {
         return arrival;
@@ -64,7 +55,7 @@ public class Flight extends BaseEntity {
         return this;
     }
 
-    @OneToOne
+    @ManyToOne
     public Airplane getAirplane() {
         return airplane;
     }
@@ -85,11 +76,11 @@ public class Flight extends BaseEntity {
     }
 
     @Column(nullable = false)
-    public String getFlightDuration() {
+    public LocalTime getFlightDuration() {
         return flightDuration;
     }
 
-    public Flight setFlightDuration(String flightDuration) {
+    public Flight setFlightDuration(LocalTime flightDuration) {
         this.flightDuration = flightDuration;
         return this;
     }

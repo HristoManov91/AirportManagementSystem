@@ -19,30 +19,30 @@ public class SeatServiceImpl implements SeatService {
         this.seatRepo = seatRepo;
     }
 
-    @Override
-    public List<Seat> createSeats(Integer countOfSeats) {
-        List<Seat> seats = new ArrayList<>();
-
-        int count = 1;
-        int letterIndex = 0;
-        int row = 1;
-
-        while (count <= countOfSeats){
-            Seat seat = new Seat()
-                    .setSeat(row + SEAT_LEATHERS[letterIndex])
-                    .setBusy(false);
-
-            seats.add(seatRepo.save(seat));
-
-            letterIndex++;
-            count++;
-
-            if (letterIndex >= SEAT_LEATHERS.length){
-                letterIndex = 0;
-                row++;
-            }
-        }
-
-        return seats;
-    }
+//    @Override
+//    public List<Seat> createSeats(Integer countOfSeats) {
+//        List<Seat> seats = new ArrayList<>();
+//
+//        int count = 1;
+//        int letterIndex = 0;
+//        int row = 1;
+//
+//        while (count <= countOfSeats){
+//            Seat seat = new Seat()
+//                    .setSeat(row + SEAT_LEATHERS[letterIndex])
+//                    .setBusy(false);
+//
+//            seats.add(seatRepo.save(seat));
+//
+//            letterIndex++;
+//            count++;
+//
+//            if (letterIndex >= SEAT_LEATHERS.length){
+//                letterIndex = 0;
+//                row++;
+//            }
+//        }
+//
+//        return seats;
+//    }
 }

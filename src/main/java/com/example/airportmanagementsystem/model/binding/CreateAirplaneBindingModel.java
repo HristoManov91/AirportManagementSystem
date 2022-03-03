@@ -8,7 +8,6 @@ import java.time.LocalDate;
 
 public class CreateAirplaneBindingModel {
 
-    private Long id;
     private String manufacture;
     private String model;
     private String ARN;
@@ -22,15 +21,6 @@ public class CreateAirplaneBindingModel {
     private BigDecimal typicalRangeInKilometres;
 
     public CreateAirplaneBindingModel() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public CreateAirplaneBindingModel setId(Long id) {
-        this.id = id;
-        return this;
     }
 
     @NotBlank

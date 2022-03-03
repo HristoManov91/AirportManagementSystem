@@ -14,7 +14,8 @@ public class Airline extends BaseEntity {
     private String phone;
     private String email;
     private String imageUrl;
-    private List<Airplane> airplanes;
+    private List<Flight> flights = new ArrayList<>();
+    private List<Airplane> airplanes = new ArrayList<>();
     private String description;
     // destinations
 
@@ -81,7 +82,17 @@ public class Airline extends BaseEntity {
         return this;
     }
 
-    @OneToMany(mappedBy = "airline" , fetch = FetchType.EAGER)
+    @ManyToMany
+    public List<Flight> getFlights() {
+        return flights;
+    }
+
+    public Airline setFlights(List<Flight> flights) {
+        this.flights = flights;
+        return this;
+    }
+
+    @OneToMany(mappedBy = "airline")
     public List<Airplane> getAirplanes() {
         return airplanes;
     }
