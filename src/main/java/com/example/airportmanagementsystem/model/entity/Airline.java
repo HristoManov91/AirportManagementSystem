@@ -10,7 +10,8 @@ public class Airline extends BaseEntity {
 
     private String name;
     private String website;
-    private String code;
+    private String iataCode;
+    private String icaoCode;
     private String phone;
     private String email;
     private String imageUrl;
@@ -43,16 +44,26 @@ public class Airline extends BaseEntity {
     }
 
     @Column(nullable = false , unique = true)
-    public String getCode() {
-        return code;
+    public String getIataCode() {
+        return iataCode;
     }
 
-    public Airline setCode(String code) {
-        this.code = code;
+    public Airline setIataCode(String code) {
+        this.iataCode = code;
         return this;
     }
 
     @Column(nullable = false , unique = true)
+    public String getIcaoCode() {
+        return icaoCode;
+    }
+
+    public Airline setIcaoCode(String icaoCode) {
+        this.icaoCode = icaoCode;
+        return this;
+    }
+
+    @Column(nullable = false)
     public String getPhone() {
         return phone;
     }
@@ -62,7 +73,7 @@ public class Airline extends BaseEntity {
         return this;
     }
 
-    @Column(unique = true)
+    @Column
     public String getEmail() {
         return email;
     }
@@ -92,7 +103,7 @@ public class Airline extends BaseEntity {
         return this;
     }
 
-    @OneToMany(mappedBy = "airline")
+    @OneToMany(mappedBy = "airline", fetch = FetchType.EAGER)
     public List<Airplane> getAirplanes() {
         return airplanes;
     }

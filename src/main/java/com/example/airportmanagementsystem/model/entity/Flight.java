@@ -11,7 +11,7 @@ import java.time.OffsetTime;
 @Table(name = "flights")
 public class Flight extends BaseEntity {
 
-    private Destination destination;
+    private Route route;
     private LocalDateTime departure;
     private LocalDateTime arrival;
     private Airplane airplane;
@@ -20,18 +20,19 @@ public class Flight extends BaseEntity {
     private OffsetTime boarding;
     private LocalTime flightDuration; // A time zone library can be used
     // distance (need library for this)
+    // transfer
 
 
     public Flight() {
     }
 
-    
-    public Destination getDestination() {
-        return destination;
+    @OneToOne
+    public Route getDestination() {
+        return route;
     }
 
-    public Flight setDestination(Destination destination) {
-        this.destination = destination;
+    public Flight setDestination(Route route) {
+        this.route = route;
         return this;
     }
 

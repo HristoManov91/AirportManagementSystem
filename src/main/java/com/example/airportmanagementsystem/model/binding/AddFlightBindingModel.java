@@ -9,9 +9,8 @@ import java.time.OffsetTime;
 
 public class AddFlightBindingModel {
 
-    private String fromAirport;
+    private String flightNum;
     private LocalDateTime departure;
-    private String toAirport;
     private LocalDateTime arrival;
     private String airplaneARN;
     private OffsetTime boarding;
@@ -21,12 +20,12 @@ public class AddFlightBindingModel {
     }
 
     @NotBlank
-    public String getFromAirport() {
-        return fromAirport;
+    public String getFlightNum() {
+        return flightNum;
     }
 
-    public AddFlightBindingModel setFromAirport(String fromAirport) {
-        this.fromAirport = fromAirport;
+    public AddFlightBindingModel setFlightNum(String flightNum) {
+        this.flightNum = flightNum;
         return this;
     }
 
@@ -38,16 +37,6 @@ public class AddFlightBindingModel {
 
     public AddFlightBindingModel setDeparture(LocalDateTime departure) {
         this.departure = departure;
-        return this;
-    }
-
-    @NotBlank
-    public String getToAirport() {
-        return toAirport;
-    }
-
-    public AddFlightBindingModel setToAirport(String toAirport) {
-        this.toAirport = toAirport;
         return this;
     }
 

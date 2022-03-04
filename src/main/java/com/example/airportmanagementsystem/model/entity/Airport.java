@@ -11,6 +11,8 @@ public class Airport extends BaseEntity {
     private String name;
     private String city;
     private String country;
+    private String iataCode; //IATA (International Air Transport Association)
+    private String icaoCode; //ICAO (International Civil Aviation Organization)
     private String website;
     private List<Flight> flights = new ArrayList<>();
     // terminals
@@ -49,6 +51,26 @@ public class Airport extends BaseEntity {
 
     public Airport setCountry(String country) {
         this.country = country;
+        return this;
+    }
+
+    @Column(nullable = false , unique = true , length = 10)
+    public String getIataCode() {
+        return iataCode;
+    }
+
+    public Airport setIataCode(String code) {
+        this.iataCode = code;
+        return this;
+    }
+
+    @Column(nullable = false , unique = true , length = 10)
+    public String getIcaoCode() {
+        return icaoCode;
+    }
+
+    public Airport setIcaoCode(String icaoCode) {
+        this.icaoCode = icaoCode;
         return this;
     }
 

@@ -8,7 +8,8 @@ public class CreateAirlineBindingModel {
 
     private String name;
     private String website;
-    private String code;
+    private String iataCode;
+    private String icaoCode;
     private String phone;
     private String email;
     private String imgUrl;
@@ -40,13 +41,24 @@ public class CreateAirlineBindingModel {
     }
 
     @NotBlank
-    @Size(min = 3)
-    public String getCode() {
-        return code;
+    @Size(min = 2 , max = 2)
+    public String getIataCode() {
+        return iataCode;
     }
 
-    public CreateAirlineBindingModel setCode(String code) {
-        this.code = code;
+    public CreateAirlineBindingModel setIataCode(String iataCode) {
+        this.iataCode = iataCode;
+        return this;
+    }
+
+    @NotBlank
+    @Size(min = 3 , max = 3)
+    public String getIcaoCode() {
+        return icaoCode;
+    }
+
+    public CreateAirlineBindingModel setIcaoCode(String icaoCode) {
+        this.icaoCode = icaoCode;
         return this;
     }
 

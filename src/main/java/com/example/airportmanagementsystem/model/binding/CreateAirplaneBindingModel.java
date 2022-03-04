@@ -19,6 +19,7 @@ public class CreateAirplaneBindingModel {
     private BigDecimal fuelConsumptionInLitres;
     private BigDecimal maxSpeedInKilometres;
     private BigDecimal typicalRangeInKilometres;
+    private String description;
 
     public CreateAirplaneBindingModel() {
     }
@@ -142,6 +143,15 @@ public class CreateAirplaneBindingModel {
 
     public CreateAirplaneBindingModel setTypicalRangeInKilometres(BigDecimal typicalRangeInKilometres) {
         this.typicalRangeInKilometres = typicalRangeInKilometres;
+        return this;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public CreateAirplaneBindingModel setDescription(String description) {
+        this.description = description;
         return this;
     }
 }

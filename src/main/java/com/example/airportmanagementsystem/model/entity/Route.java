@@ -1,16 +1,30 @@
 package com.example.airportmanagementsystem.model.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-public class Destination {
+@Entity
+@Table(name = "routes")
+public class Route extends BaseEntity {
 
+    private String flightNum;
     private Airport fromAirport;
     private Airport toAirport;
     private Airline airline;
-    private String flightNo;
 
-    public Destination() {
+    public Route() {
+    }
+
+    @Column(unique = true , nullable = false)
+    public String getFlightNum() {
+        return flightNum;
+    }
+
+    public Route setFlightNum(String flightNo) {
+        this.flightNum = flightNo;
+        return this;
     }
 
     @ManyToOne
@@ -18,7 +32,7 @@ public class Destination {
         return fromAirport;
     }
 
-    public Destination setFromAirport(Airport fromAirport) {
+    public Route setFromAirport(Airport fromAirport) {
         this.fromAirport = fromAirport;
         return this;
     }
@@ -28,7 +42,7 @@ public class Destination {
         return toAirport;
     }
 
-    public Destination setToAirport(Airport toAirport) {
+    public Route setToAirport(Airport toAirport) {
         this.toAirport = toAirport;
         return this;
     }
@@ -38,18 +52,8 @@ public class Destination {
         return airline;
     }
 
-    public Destination setAirline(Airline airline) {
+    public Route setAirline(Airline airline) {
         this.airline = airline;
-        return this;
-    }
-
-    @Column(nullable = false , unique = true)
-    public String getFlightNo() {
-        return flightNo;
-    }
-
-    public Destination setFlightNo(String flightNo) {
-        this.flightNo = flightNo;
         return this;
     }
 }

@@ -4,8 +4,8 @@ import com.example.airportmanagementsystem.model.binding.CreateAirplaneBindingMo
 import com.example.airportmanagementsystem.model.entity.Airplane;
 
 public interface AirplaneService {
-//
-//    Airplane createAirplane(CreateAirplaneBindingModel createAirplaneBindingModel);
-//
-//    Airplane findByARN(String airplaneARN);
+
+    Airplane createAirplane(CreateAirplaneBindingModel createAirplaneBindingModel);
+
+    Airplane findByARN(String airplaneARN);
 }

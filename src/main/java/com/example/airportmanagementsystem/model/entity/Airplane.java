@@ -5,6 +5,7 @@ import com.example.airportmanagementsystem.model.entity.enums.AirplaneStatusEnum
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,7 +19,7 @@ public class Airplane extends BaseEntity {
     private LocalDate dateOfManufacture;
     private Integer cockpitCrew;
     private List<Seat> seats;
-    private List<Flight> flights;
+    private List<Flight> flights = new ArrayList<>();
     private BigDecimal maxTakeoffWeight;
     private BigDecimal fuelCapacity;
     private BigDecimal fuelConsumption;

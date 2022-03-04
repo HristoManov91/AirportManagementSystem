@@ -10,4 +10,8 @@ import java.util.Optional;
 public interface AirlineRepo extends JpaRepository<Airline , Long> {
 
     Optional<Airline> findAirlineByName(String airlineName);
+
+    Optional<Airline> findAirlineByIataCode(String iataCode);
+
+    Optional<Airline> findAirlineByIcaoCode(String icaoCode);
 }

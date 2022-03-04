@@ -1,6 +1,7 @@
 package com.example.airportmanagementsystem.model.entity;
 
 import com.example.airportmanagementsystem.model.entity.enums.TicketStatus;
+import com.example.airportmanagementsystem.model.entity.enums.TicketClass;
 
 import javax.persistence.*;
 
@@ -10,8 +11,9 @@ public class Ticket extends BaseEntity {
 
     private Flight flight;
     private String seat;
-    private Integer countSuitcases;
+    private Integer countSuitcases; // need other class with different params
     private TicketStatus status;
+    private TicketClass ticketClazz;
 
     public Ticket() {
     }
@@ -53,6 +55,16 @@ public class Ticket extends BaseEntity {
 
     public Ticket setStatus(TicketStatus status) {
         this.status = status;
+        return this;
+    }
+
+    @Enumerated(EnumType.STRING)
+    public TicketClass getTicketClazz() {
+        return ticketClazz;
+    }
+
+    public Ticket setTicketClazz(TicketClass typeOfTicket) {
+        this.ticketClazz = typeOfTicket;
         return this;
     }
 }
