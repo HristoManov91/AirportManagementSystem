@@ -130,6 +130,13 @@ public class AirportServiceImpl implements AirportService {
         return null;
     }
 
+    @Override
+    public Airport findByIataCode(String iataCode) {
+        return airportRepo
+                .findByIataCode(iataCode)
+                .orElseThrow(() -> new IllegalArgumentException("We don't have airline with this " + iataCode + " IATA name!"));
+    }
+
     private boolean uniqueICAO(String icaoCode) {
         return airportRepo.findByIcaoCode(icaoCode).isPresent();
     }

@@ -11,4 +11,6 @@ public interface AirportService {
     Airport createAirport(CreateAirportBindingModel createAirportBindingModel);
 
     String addFlight(AddFlightBindingModel addFlightBindingModel);
+
+    Airport findByIataCode(String iataCode);
 }

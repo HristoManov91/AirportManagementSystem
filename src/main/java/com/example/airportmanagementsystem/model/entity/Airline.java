@@ -17,6 +17,7 @@ public class Airline extends BaseEntity {
     private String imageUrl;
     private List<Flight> flights = new ArrayList<>();
     private List<Airplane> airplanes = new ArrayList<>();
+    private List<Route> routes = new ArrayList<>();
     private String description;
     // destinations
 
@@ -110,6 +111,16 @@ public class Airline extends BaseEntity {
 
     public Airline setAirplanes(List<Airplane> airplanes) {
         this.airplanes = airplanes;
+        return this;
+    }
+
+    @OneToMany
+    public List<Route> getRoutes() {
+        return routes;
+    }
+
+    public Airline setRoutes(List<Route> routes) {
+        this.routes = routes;
         return this;
     }
 

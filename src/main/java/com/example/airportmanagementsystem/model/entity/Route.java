@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Table(name = "routes")
 public class Route extends BaseEntity {
 
-    private String flightNum;
+    private String routeNum;
     private Airport fromAirport;
     private Airport toAirport;
     private Airline airline;
@@ -18,12 +18,12 @@ public class Route extends BaseEntity {
     }
 
     @Column(unique = true , nullable = false)
-    public String getFlightNum() {
-        return flightNum;
+    public String getRouteNum() {
+        return routeNum;
     }
 
-    public Route setFlightNum(String flightNo) {
-        this.flightNum = flightNo;
+    public Route setRouteNum(String flightNo) {
+        this.routeNum = flightNo;
         return this;
     }
 

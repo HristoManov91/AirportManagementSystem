@@ -11,12 +11,14 @@ public class CreateAirplaneBindingModel {
     private String manufacture;
     private String model;
     private String ARN;
+    private String airlineName;
+    private String airport;
     private LocalDate dateOfManufacture;
     private Integer cockpitCrew;
     private Integer countOfSeats;
     private BigDecimal maxTakeoffWeightInKilograms;
     private BigDecimal fuelCapacityInLitres;
-    private BigDecimal fuelConsumptionInLitres;
+    private BigDecimal fuelConsumptionInLitresPerHour;
     private BigDecimal maxSpeedInKilometres;
     private BigDecimal typicalRangeInKilometres;
     private String description;
@@ -54,6 +56,26 @@ public class CreateAirplaneBindingModel {
 
     public CreateAirplaneBindingModel setARN(String ARN) {
         this.ARN = ARN;
+        return this;
+    }
+
+    @NotBlank
+    public String getAirlineName() {
+        return airlineName;
+    }
+
+    public CreateAirplaneBindingModel setAirlineName(String airlineName) {
+        this.airlineName = airlineName;
+        return this;
+    }
+
+    @NotBlank
+    public String getAirport() {
+        return airport;
+    }
+
+    public CreateAirplaneBindingModel setAirport(String airport) {
+        this.airport = airport;
         return this;
     }
 
@@ -115,12 +137,12 @@ public class CreateAirplaneBindingModel {
 
     @NotNull
     @Min(50)
-    public BigDecimal getFuelConsumptionInLitres() {
-        return fuelConsumptionInLitres;
+    public BigDecimal getFuelConsumptionInLitresPerHour() {
+        return fuelConsumptionInLitresPerHour;
     }
 
     public CreateAirplaneBindingModel setFuelConsumptionInLitresPerHour(BigDecimal fuelConsumptionInLitres) {
-        this.fuelConsumptionInLitres = fuelConsumptionInLitres;
+        this.fuelConsumptionInLitresPerHour = fuelConsumptionInLitres;
         return this;
     }
 
