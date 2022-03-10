@@ -97,7 +97,7 @@ public class Airplane extends BaseEntity {
         return this;
     }
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)// ToDo fix delete
     public List<Seat> getSeats() {
         return seats;
     }

@@ -6,7 +6,7 @@ import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class CreateAirplaneBindingModel {
+public class AirplaneBindingModel {
 
     private String manufacture;
     private String model;
@@ -23,7 +23,7 @@ public class CreateAirplaneBindingModel {
     private BigDecimal typicalRangeInKilometres;
     private String description;
 
-    public CreateAirplaneBindingModel() {
+    public AirplaneBindingModel() {
     }
 
     @NotBlank
@@ -32,7 +32,7 @@ public class CreateAirplaneBindingModel {
         return manufacture;
     }
 
-    public CreateAirplaneBindingModel setManufacture(String manufacture) {
+    public AirplaneBindingModel setManufacture(String manufacture) {
         this.manufacture = manufacture;
         return this;
     }
@@ -43,7 +43,7 @@ public class CreateAirplaneBindingModel {
         return model;
     }
 
-    public CreateAirplaneBindingModel setModel(String model) {
+    public AirplaneBindingModel setModel(String model) {
         this.model = model;
         return this;
     }
@@ -54,7 +54,7 @@ public class CreateAirplaneBindingModel {
         return ARN;
     }
 
-    public CreateAirplaneBindingModel setARN(String ARN) {
+    public AirplaneBindingModel setARN(String ARN) {
         this.ARN = ARN;
         return this;
     }
@@ -64,7 +64,7 @@ public class CreateAirplaneBindingModel {
         return airlineName;
     }
 
-    public CreateAirplaneBindingModel setAirlineName(String airlineName) {
+    public AirplaneBindingModel setAirlineName(String airlineName) {
         this.airlineName = airlineName;
         return this;
     }
@@ -74,7 +74,7 @@ public class CreateAirplaneBindingModel {
         return airport;
     }
 
-    public CreateAirplaneBindingModel setAirport(String airport) {
+    public AirplaneBindingModel setAirport(String airport) {
         this.airport = airport;
         return this;
     }
@@ -86,7 +86,7 @@ public class CreateAirplaneBindingModel {
         return dateOfManufacture;
     }
 
-    public CreateAirplaneBindingModel setDateOfManufacture(LocalDate dateOfManufacture) {
+    public AirplaneBindingModel setDateOfManufacture(LocalDate dateOfManufacture) {
         this.dateOfManufacture = dateOfManufacture;
         return this;
     }
@@ -97,7 +97,7 @@ public class CreateAirplaneBindingModel {
         return cockpitCrew;
     }
 
-    public CreateAirplaneBindingModel setCockpitCrew(Integer cockpitCrew) {
+    public AirplaneBindingModel setCockpitCrew(Integer cockpitCrew) {
         this.cockpitCrew = cockpitCrew;
         return this;
     }
@@ -108,7 +108,7 @@ public class CreateAirplaneBindingModel {
         return countOfSeats;
     }
 
-    public CreateAirplaneBindingModel setCountOfSeats(Integer countOfSeats) {
+    public AirplaneBindingModel setCountOfSeats(Integer countOfSeats) {
         this.countOfSeats = countOfSeats;
         return this;
     }
@@ -119,7 +119,7 @@ public class CreateAirplaneBindingModel {
         return maxTakeoffWeightInKilograms;
     }
 
-    public CreateAirplaneBindingModel setMaxTakeoffWeightInKilograms(BigDecimal maxTakeoffWeightInKilograms) {
+    public AirplaneBindingModel setMaxTakeoffWeightInKilograms(BigDecimal maxTakeoffWeightInKilograms) {
         this.maxTakeoffWeightInKilograms = maxTakeoffWeightInKilograms;
         return this;
     }
@@ -130,7 +130,7 @@ public class CreateAirplaneBindingModel {
         return fuelCapacityInLitres;
     }
 
-    public CreateAirplaneBindingModel setFuelCapacityInLitres(BigDecimal fuelCapacityInLitres) {
+    public AirplaneBindingModel setFuelCapacityInLitres(BigDecimal fuelCapacityInLitres) {
         this.fuelCapacityInLitres = fuelCapacityInLitres;
         return this;
     }
@@ -141,7 +141,7 @@ public class CreateAirplaneBindingModel {
         return fuelConsumptionInLitresPerHour;
     }
 
-    public CreateAirplaneBindingModel setFuelConsumptionInLitresPerHour(BigDecimal fuelConsumptionInLitres) {
+    public AirplaneBindingModel setFuelConsumptionInLitresPerHour(BigDecimal fuelConsumptionInLitres) {
         this.fuelConsumptionInLitresPerHour = fuelConsumptionInLitres;
         return this;
     }
@@ -152,7 +152,7 @@ public class CreateAirplaneBindingModel {
         return maxSpeedInKilometres;
     }
 
-    public CreateAirplaneBindingModel setMaxSpeedInKilometres(BigDecimal maxSpeedInKilometres) {
+    public AirplaneBindingModel setMaxSpeedInKilometres(BigDecimal maxSpeedInKilometres) {
         this.maxSpeedInKilometres = maxSpeedInKilometres;
         return this;
     }
@@ -163,7 +163,7 @@ public class CreateAirplaneBindingModel {
         return typicalRangeInKilometres;
     }
 
-    public CreateAirplaneBindingModel setTypicalRangeInKilometres(BigDecimal typicalRangeInKilometres) {
+    public AirplaneBindingModel setTypicalRangeInKilometres(BigDecimal typicalRangeInKilometres) {
         this.typicalRangeInKilometres = typicalRangeInKilometres;
         return this;
     }
@@ -172,7 +172,7 @@ public class CreateAirplaneBindingModel {
         return description;
     }
 
-    public CreateAirplaneBindingModel setDescription(String description) {
+    public AirplaneBindingModel setDescription(String description) {
         this.description = description;
         return this;
     }

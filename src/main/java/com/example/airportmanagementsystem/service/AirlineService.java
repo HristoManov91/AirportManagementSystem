@@ -1,22 +1,24 @@
 package com.example.airportmanagementsystem.service;
 
 import com.example.airportmanagementsystem.model.binding.AddRouteBindingModel;
-import com.example.airportmanagementsystem.model.binding.CreateAirlineBindingModel;
-import com.example.airportmanagementsystem.model.binding.CreateAirplaneBindingModel;
+import com.example.airportmanagementsystem.model.binding.AirlineBindingModel;
+import com.example.airportmanagementsystem.model.binding.AirplaneBindingModel;
 import com.example.airportmanagementsystem.model.entity.Airline;
-import com.example.airportmanagementsystem.model.entity.Flight;
-import com.example.airportmanagementsystem.model.entity.Route;
 
 public interface AirlineService {
 
     void initAirline();
 
-    Airline createAirline(CreateAirlineBindingModel createAirlineBindingModel);
-
-    void addAirplane(CreateAirplaneBindingModel createAirplaneBindingModel);
-
+    Airline createAirline(AirlineBindingModel airlineBindingModel);
 
     Airline findByIataCode(String iataCode);
+
+    Airline updateAirline(AirlineBindingModel airlineBindingModel);
+
+    void deleteAirline(String iataCode);
+
+    void addAirplane(AirplaneBindingModel airplaneBindingModel);
+
 
     void createRoute(AddRouteBindingModel addRouteBindingModel);
 }

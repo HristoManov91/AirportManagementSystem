@@ -45,4 +45,9 @@ public class SeatServiceImpl implements SeatService {
 
         return seats;
     }
+
+    @Override
+    public void deleteSeat(Long id) {
+        seatRepo.deleteById(id);
+    }
 }

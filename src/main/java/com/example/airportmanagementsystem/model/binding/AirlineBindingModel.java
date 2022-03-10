@@ -4,7 +4,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public class CreateAirlineBindingModel {
+public class AirlineBindingModel {
 
     private String name;
     private String website;
@@ -15,7 +15,7 @@ public class CreateAirlineBindingModel {
     private String imgUrl;
     private String description;
 
-    public CreateAirlineBindingModel() {
+    public AirlineBindingModel() {
     }
 
     @NotBlank
@@ -24,7 +24,7 @@ public class CreateAirlineBindingModel {
         return name;
     }
 
-    public CreateAirlineBindingModel setName(String name) {
+    public AirlineBindingModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -35,7 +35,7 @@ public class CreateAirlineBindingModel {
         return website;
     }
 
-    public CreateAirlineBindingModel setWebsite(String website) {
+    public AirlineBindingModel setWebsite(String website) {
         this.website = website;
         return this;
     }
@@ -46,7 +46,7 @@ public class CreateAirlineBindingModel {
         return iataCode;
     }
 
-    public CreateAirlineBindingModel setIataCode(String iataCode) {
+    public AirlineBindingModel setIataCode(String iataCode) {
         this.iataCode = iataCode;
         return this;
     }
@@ -57,7 +57,7 @@ public class CreateAirlineBindingModel {
         return icaoCode;
     }
 
-    public CreateAirlineBindingModel setIcaoCode(String icaoCode) {
+    public AirlineBindingModel setIcaoCode(String icaoCode) {
         this.icaoCode = icaoCode;
         return this;
     }
@@ -68,7 +68,7 @@ public class CreateAirlineBindingModel {
         return phone;
     }
 
-    public CreateAirlineBindingModel setPhone(String phone) {
+    public AirlineBindingModel setPhone(String phone) {
         this.phone = phone;
         return this;
     }
@@ -79,7 +79,7 @@ public class CreateAirlineBindingModel {
         return email;
     }
 
-    public CreateAirlineBindingModel setEmail(String email) {
+    public AirlineBindingModel setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -89,7 +89,7 @@ public class CreateAirlineBindingModel {
         return imgUrl;
     }
 
-    public CreateAirlineBindingModel setImgUrl(String imgUrl) {
+    public AirlineBindingModel setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
         return this;
     }
@@ -98,7 +98,7 @@ public class CreateAirlineBindingModel {
         return description;
     }
 
-    public CreateAirlineBindingModel setDescription(String description) {
+    public AirlineBindingModel setDescription(String description) {
         this.description = description;
         return this;
     }

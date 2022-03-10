@@ -3,7 +3,7 @@ package com.example.airportmanagementsystem.model.binding;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public class CreateAirportBindingModel {
+public class AirportBindingModel {
 
     private String name;
     private String city;
@@ -12,7 +12,7 @@ public class CreateAirportBindingModel {
     private String icaoCode;
     private String website;
 
-    public CreateAirportBindingModel() {
+    public AirportBindingModel() {
     }
 
     @NotBlank
@@ -20,7 +20,7 @@ public class CreateAirportBindingModel {
         return name;
     }
 
-    public CreateAirportBindingModel setName(String name) {
+    public AirportBindingModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -30,7 +30,7 @@ public class CreateAirportBindingModel {
         return city;
     }
 
-    public CreateAirportBindingModel setCity(String city) {
+    public AirportBindingModel setCity(String city) {
         this.city = city;
         return this;
     }
@@ -40,7 +40,7 @@ public class CreateAirportBindingModel {
         return country;
     }
 
-    public CreateAirportBindingModel setCountry(String country) {
+    public AirportBindingModel setCountry(String country) {
         this.country = country;
         return this;
     }
@@ -51,7 +51,7 @@ public class CreateAirportBindingModel {
         return iataCode;
     }
 
-    public CreateAirportBindingModel setIataCode(String iataCode) {
+    public AirportBindingModel setIataCode(String iataCode) {
         this.iataCode = iataCode;
         return this;
     }
@@ -62,7 +62,7 @@ public class CreateAirportBindingModel {
         return icaoCode;
     }
 
-    public CreateAirportBindingModel setIcaoCode(String icaoCode) {
+    public AirportBindingModel setIcaoCode(String icaoCode) {
         this.icaoCode = icaoCode;
         return this;
     }
@@ -72,7 +72,7 @@ public class CreateAirportBindingModel {
         return website;
     }
 
-    public CreateAirportBindingModel setWebsite(String website) {
+    public AirportBindingModel setWebsite(String website) {
         this.website = website;
         return this;
     }

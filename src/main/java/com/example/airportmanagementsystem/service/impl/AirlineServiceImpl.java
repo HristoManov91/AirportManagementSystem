@@ -1,8 +1,8 @@
 package com.example.airportmanagementsystem.service.impl;
 
 import com.example.airportmanagementsystem.model.binding.AddRouteBindingModel;
-import com.example.airportmanagementsystem.model.binding.CreateAirlineBindingModel;
-import com.example.airportmanagementsystem.model.binding.CreateAirplaneBindingModel;
+import com.example.airportmanagementsystem.model.binding.AirlineBindingModel;
+import com.example.airportmanagementsystem.model.binding.AirplaneBindingModel;
 import com.example.airportmanagementsystem.model.entity.Airline;
 import com.example.airportmanagementsystem.model.entity.Airplane;
 import com.example.airportmanagementsystem.model.entity.Route;
@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Optional;
 
 
 @Service
@@ -49,7 +50,7 @@ public class AirlineServiceImpl implements AirlineService {
                 .setImageUrl("https://images.ctfassets.net/biom0eqyyi6b/1b8ztEoWXkaKkcuK2YmyuK/7edb43de24bf245749cf3c910a1802b1/BulgariaAir.png");
 
         airlineRepo.save(bulgariaAir);
-        addAirplane(new CreateAirplaneBindingModel()
+        addAirplane(new AirplaneBindingModel()
                 .setManufacture("Airbus")
                 .setModel("a320")
                 .setARN("FB1000")
@@ -64,7 +65,7 @@ public class AirlineServiceImpl implements AirlineService {
                 .setMaxSpeedInKilometres(BigDecimal.valueOf(800))
                 .setTypicalRangeInKilometres(BigDecimal.valueOf(6300)));
 
-        addAirplane(new CreateAirplaneBindingModel()
+        addAirplane(new AirplaneBindingModel()
                 .setManufacture("Airbus")
                 .setModel("a320")
                 .setARN("FB2000")
@@ -89,7 +90,7 @@ public class AirlineServiceImpl implements AirlineService {
                 .setImageUrl("https://www.schengenvisainfo.com/news/wp-content/uploads/2021/03/lufthansa.jpg");
 
         airlineRepo.save(lufthansa);
-        addAirplane(new CreateAirplaneBindingModel()
+        addAirplane(new AirplaneBindingModel()
                 .setManufacture("Airbus")
                 .setModel("a321")
                 .setARN("LH1000")
@@ -103,7 +104,7 @@ public class AirlineServiceImpl implements AirlineService {
                 .setMaxSpeedInKilometres(BigDecimal.valueOf(850))
                 .setTypicalRangeInKilometres(BigDecimal.valueOf(6800)));
 
-        addAirplane(new CreateAirplaneBindingModel()
+        addAirplane(new AirplaneBindingModel()
                 .setManufacture("Airbus")
                 .setModel("a321")
                 .setARN("LH2000")
@@ -117,7 +118,7 @@ public class AirlineServiceImpl implements AirlineService {
                 .setMaxSpeedInKilometres(BigDecimal.valueOf(850))
                 .setTypicalRangeInKilometres(BigDecimal.valueOf(6800)));
 
-        addAirplane(new CreateAirplaneBindingModel()
+        addAirplane(new AirplaneBindingModel()
                 .setManufacture("Airbus")
                 .setModel("a321")
                 .setARN("LH3000")
@@ -143,7 +144,7 @@ public class AirlineServiceImpl implements AirlineService {
                 .setImageUrl("https://wallpaperaccess.com/full/4456022.jpg");
 
         airlineRepo.save(ryanair);
-        addAirplane(new CreateAirplaneBindingModel()
+        addAirplane(new AirplaneBindingModel()
                 .setManufacture("Airbus")
                 .setModel("a319")
                 .setARN("FR1000")
@@ -157,7 +158,7 @@ public class AirlineServiceImpl implements AirlineService {
                 .setMaxSpeedInKilometres(BigDecimal.valueOf(750))
                 .setTypicalRangeInKilometres(BigDecimal.valueOf(6000)));
 
-        addAirplane(new CreateAirplaneBindingModel()
+        addAirplane(new AirplaneBindingModel()
                 .setManufacture("Airbus")
                 .setModel("a319")
                 .setARN("FR2000")
@@ -182,21 +183,21 @@ public class AirlineServiceImpl implements AirlineService {
                 .setImageUrl("https://i.hurimg.com/i/hdn/75/0x0/5d70f33267b0a92d5c67f6b9.jpg");
 
         airlineRepo.save(turkishAirlines);
-        addAirplane(new CreateAirplaneBindingModel()
-                        .setManufacture("Boeing")
-                        .setModel("737")
-                        .setARN("TK1000")
-                        .setAirlineName("TURKISH AIRLINES")
-                        .setDateOfManufacture(LocalDate.of(2003, 2, 12))
-                        .setCockpitCrew(2)
-                        .setCountOfSeats(160)
-                        .setMaxTakeoffWeightInKilograms(BigDecimal.valueOf(65100))
-                        .setFuelCapacityInLitres(BigDecimal.valueOf(28730))
-                        .setFuelConsumptionInLitresPerHour(BigDecimal.valueOf(2850))
-                        .setMaxSpeedInKilometres(BigDecimal.valueOf(830))
-                        .setTypicalRangeInKilometres(BigDecimal.valueOf(6900)));
+        addAirplane(new AirplaneBindingModel()
+                .setManufacture("Boeing")
+                .setModel("737")
+                .setARN("TK1000")
+                .setAirlineName("TURKISH AIRLINES")
+                .setDateOfManufacture(LocalDate.of(2003, 2, 12))
+                .setCockpitCrew(2)
+                .setCountOfSeats(160)
+                .setMaxTakeoffWeightInKilograms(BigDecimal.valueOf(65100))
+                .setFuelCapacityInLitres(BigDecimal.valueOf(28730))
+                .setFuelConsumptionInLitresPerHour(BigDecimal.valueOf(2850))
+                .setMaxSpeedInKilometres(BigDecimal.valueOf(830))
+                .setTypicalRangeInKilometres(BigDecimal.valueOf(6900)));
 
-        addAirplane(new CreateAirplaneBindingModel()
+        addAirplane(new AirplaneBindingModel()
                 .setManufacture("Boeing")
                 .setModel("737")
                 .setARN("TK2000")
@@ -221,21 +222,21 @@ public class AirlineServiceImpl implements AirlineService {
                 .setImageUrl("https://www.fly4free.com/wp-content/uploads/2020/05/A321neo_WIZZ_AIR-800x537.jpg");
 
         airlineRepo.save(wizzAir);
-        addAirplane(new CreateAirplaneBindingModel()
-                        .setManufacture("Boeing")
-                        .setModel("777")
-                        .setARN("W61000")
-                        .setAirlineName("WIZZ AIR")
-                        .setDateOfManufacture(LocalDate.of(2004, 4, 24))
-                        .setCockpitCrew(2)
-                        .setCountOfSeats(230)
-                        .setMaxTakeoffWeightInKilograms(BigDecimal.valueOf(95100))
-                        .setFuelCapacityInLitres(BigDecimal.valueOf(32730))
-                        .setFuelConsumptionInLitresPerHour(BigDecimal.valueOf(3050))
-                        .setMaxSpeedInKilometres(BigDecimal.valueOf(900))
-                        .setTypicalRangeInKilometres(BigDecimal.valueOf(7500)));
+        addAirplane(new AirplaneBindingModel()
+                .setManufacture("Boeing")
+                .setModel("777")
+                .setARN("W61000")
+                .setAirlineName("WIZZ AIR")
+                .setDateOfManufacture(LocalDate.of(2004, 4, 24))
+                .setCockpitCrew(2)
+                .setCountOfSeats(230)
+                .setMaxTakeoffWeightInKilograms(BigDecimal.valueOf(95100))
+                .setFuelCapacityInLitres(BigDecimal.valueOf(32730))
+                .setFuelConsumptionInLitresPerHour(BigDecimal.valueOf(3050))
+                .setMaxSpeedInKilometres(BigDecimal.valueOf(900))
+                .setTypicalRangeInKilometres(BigDecimal.valueOf(7500)));
 
-        addAirplane(new CreateAirplaneBindingModel()
+        addAirplane(new AirplaneBindingModel()
                 .setManufacture("Boeing")
                 .setModel("777")
                 .setARN("W62000")
@@ -249,7 +250,7 @@ public class AirlineServiceImpl implements AirlineService {
                 .setMaxSpeedInKilometres(BigDecimal.valueOf(900))
                 .setTypicalRangeInKilometres(BigDecimal.valueOf(7500)));
 
-        addAirplane(new CreateAirplaneBindingModel()
+        addAirplane(new AirplaneBindingModel()
                 .setManufacture("Boeing")
                 .setModel("777")
                 .setARN("W63000")
@@ -275,21 +276,21 @@ public class AirlineServiceImpl implements AirlineService {
                 .setImageUrl("https://airlines-airports.com/wp-content/uploads/2019/01/Qatar-Airways-Interesting-Facts-1170x500.jpg");
 
         airlineRepo.save(qatarAirways);
-        addAirplane(new CreateAirplaneBindingModel()
-                        .setManufacture("Boeing")
-                        .setModel("777")
-                        .setARN("QR1000")
-                        .setAirlineName("QATAR AIRWAYS")
-                        .setDateOfManufacture(LocalDate.of(2008, 11, 10))
-                        .setCockpitCrew(3)
-                        .setCountOfSeats(250)
-                        .setMaxTakeoffWeightInKilograms(BigDecimal.valueOf(97100))
-                        .setFuelCapacityInLitres(BigDecimal.valueOf(33730))
-                        .setFuelConsumptionInLitresPerHour(BigDecimal.valueOf(2950))
-                        .setMaxSpeedInKilometres(BigDecimal.valueOf(910))
-                        .setTypicalRangeInKilometres(BigDecimal.valueOf(7800)));
+        addAirplane(new AirplaneBindingModel()
+                .setManufacture("Boeing")
+                .setModel("777")
+                .setARN("QR1000")
+                .setAirlineName("QATAR AIRWAYS")
+                .setDateOfManufacture(LocalDate.of(2008, 11, 10))
+                .setCockpitCrew(3)
+                .setCountOfSeats(250)
+                .setMaxTakeoffWeightInKilograms(BigDecimal.valueOf(97100))
+                .setFuelCapacityInLitres(BigDecimal.valueOf(33730))
+                .setFuelConsumptionInLitresPerHour(BigDecimal.valueOf(2950))
+                .setMaxSpeedInKilometres(BigDecimal.valueOf(910))
+                .setTypicalRangeInKilometres(BigDecimal.valueOf(7800)));
 
-        addAirplane(new CreateAirplaneBindingModel()
+        addAirplane(new AirplaneBindingModel()
                 .setManufacture("Boeing")
                 .setModel("777")
                 .setARN("QR2000")
@@ -305,40 +306,30 @@ public class AirlineServiceImpl implements AirlineService {
     }
 
     @Override
-    public Airline createAirline(CreateAirlineBindingModel createAirlineBindingModel) {
+    public Airline createAirline(AirlineBindingModel airlineBindingModel) {
 
-        if (uniqueName(createAirlineBindingModel.getName())) {
-            throw new IllegalArgumentException("We have airline with this " + createAirlineBindingModel.getName() + " name!");
+        if (uniqueName(airlineBindingModel.getName())) {
+            throw new IllegalArgumentException("We have airline with this " + airlineBindingModel.getName() + " name!");
         }
 
-        if (uniqueIATA(createAirlineBindingModel.getIataCode())) {
-            throw new IllegalArgumentException("We have airline with this " + createAirlineBindingModel.getIataCode() + " IATA code!");
+        if (uniqueIATA(airlineBindingModel.getIataCode())) {
+            throw new IllegalArgumentException("We have airline with this " + airlineBindingModel.getIataCode() + " IATA code!");
         }
-        if (uniqueICAO(createAirlineBindingModel.getIcaoCode())) {
-            throw new IllegalArgumentException("We have airline with this " + createAirlineBindingModel.getIcaoCode() + " ICAO code!");
+        if (uniqueICAO(airlineBindingModel.getIcaoCode())) {
+            throw new IllegalArgumentException("We have airline with this " + airlineBindingModel.getIcaoCode() + " ICAO code!");
         }
 
         Airline airline = new Airline()
-                .setName(createAirlineBindingModel.getName())
-                .setWebsite(createAirlineBindingModel.getWebsite())
-                .setIataCode(createAirlineBindingModel.getIataCode())
-                .setIcaoCode(createAirlineBindingModel.getIcaoCode())
-                .setPhone(createAirlineBindingModel.getPhone())
-                .setEmail(createAirlineBindingModel.getEmail())
-                .setImageUrl(createAirlineBindingModel.getImgUrl())
-                .setDescription(createAirlineBindingModel.getDescription());
+                .setName(airlineBindingModel.getName())
+                .setWebsite(airlineBindingModel.getWebsite())
+                .setIataCode(airlineBindingModel.getIataCode())
+                .setIcaoCode(airlineBindingModel.getIcaoCode())
+                .setPhone(airlineBindingModel.getPhone())
+                .setEmail(airlineBindingModel.getEmail())
+                .setImageUrl(airlineBindingModel.getImgUrl())
+                .setDescription(airlineBindingModel.getDescription());
 
         return airlineRepo.save(airline);
-    }
-
-    @Override
-    public void addAirplane(CreateAirplaneBindingModel createAirplaneBindingModel) {
-        Airline airline = airlineRepo
-                .findAirlineByName(createAirplaneBindingModel.getAirlineName())
-                .orElseThrow(() -> new IllegalArgumentException("We don't have airline with this " + createAirplaneBindingModel.getAirlineName() + " airline name!"));
-
-        Airplane airplane = airplaneService.createAirplane(airline , createAirplaneBindingModel);
-        airline.getAirplanes().add(airplane);
     }
 
     @Override
@@ -349,6 +340,26 @@ public class AirlineServiceImpl implements AirlineService {
     }
 
     @Override
+    public Airline updateAirline(AirlineBindingModel airlineBindingModel) {
+        Airline airline = findByIataCode(airlineBindingModel.getIataCode());
+
+        airline
+                .setPhone(airlineBindingModel.getPhone())
+                .setEmail(airlineBindingModel.getEmail())
+                .setWebsite(airlineBindingModel.getWebsite())
+                .setDescription(airlineBindingModel.getDescription())
+                .setImageUrl(airlineBindingModel.getImgUrl());
+
+        return airlineRepo.save(airline);//maybe it's good to come back dto object
+    }
+
+    @Override
+    public void deleteAirline(String iataCode) {
+        Airline airline = findByIataCode(iataCode);
+        airlineRepo.delete(airline);
+    }
+
+    @Override
     public void createRoute(AddRouteBindingModel addRouteBindingModel) {
         Airline airline = findByIataCode(addRouteBindingModel.getAirlineIataCode());
 
@@ -356,6 +367,16 @@ public class AirlineServiceImpl implements AirlineService {
 
         airline.getRoutes().add(route);
         //check save data
+    }
+
+    @Override
+    public void addAirplane(AirplaneBindingModel airplaneBindingModel) {
+        Airline airline = airlineRepo
+                .findAirlineByName(airplaneBindingModel.getAirlineName())
+                .orElseThrow(() -> new IllegalArgumentException("We don't have airline with this " + airplaneBindingModel.getAirlineName() + " airline name!"));
+
+        Airplane airplane = airplaneService.createAirplane(airline, airplaneBindingModel);
+        airline.getAirplanes().add(airplane);
     }
 
     private boolean uniqueICAO(String icaoCode) {

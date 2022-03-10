@@ -1,92 +1,95 @@
-package com.example.airportmanagementsystem.model.entity;
+package com.example.airportmanagementsystem.model.binding;
 
 import com.example.airportmanagementsystem.model.entity.enums.GenderEnum;
 import com.example.airportmanagementsystem.model.entity.enums.NationalityEnum;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "passports")
-public class Passport extends BaseEntity {
+public class CreatePassengerBindingModel {
 
     private String documentType;
     private String ownerFullName;
-    private GenderEnum gender;
+    private String gender;
     private String docNumber;
     private LocalDate expiration;
     private LocalDate birthday;
-    private NationalityEnum nationality;
+    private String nationality;
 
-    public Passport() {
+    public CreatePassengerBindingModel() {
     }
 
-    @Column(nullable = false)
+    @NotBlank
     public String getDocumentType() {
         return documentType;
     }
 
-    public Passport setDocumentType(String documentType) {
+    public CreatePassengerBindingModel setDocumentType(String documentType) {
         this.documentType = documentType;
         return this;
     }
 
-    @Column(nullable = false)
+    @NotBlank
     public String getOwnerFullName() {
         return ownerFullName;
     }
 
-    public Passport setOwnerFullName(String ownerFullName) {
+    public CreatePassengerBindingModel setOwnerFullName(String ownerFullName) {
         this.ownerFullName = ownerFullName;
         return this;
     }
 
-    @Enumerated(EnumType.STRING)
-    public GenderEnum getGender() {
+    @NotBlank
+    public String getGender() {
         return gender;
     }
 
-    public Passport setGender(GenderEnum gender) {
+    public CreatePassengerBindingModel setGender(String gender) {
         this.gender = gender;
         return this;
     }
 
-    @Column(nullable = false , unique = true)
+    @NotBlank
     public String getDocNumber() {
         return docNumber;
     }
 
-    public Passport setDocNumber(String docNumber) {
+    public CreatePassengerBindingModel setDocNumber(String docNumber) {
         this.docNumber = docNumber;
         return this;
     }
 
-    @Column(nullable = false)
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Future
     public LocalDate getExpiration() {
         return expiration;
     }
 
-    public Passport setExpiration(LocalDate expiration) {
+    public CreatePassengerBindingModel setExpiration(LocalDate expiration) {
         this.expiration = expiration;
         return this;
     }
 
-    @Column(nullable = false)
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @PastOrPresent
     public LocalDate getBirthday() {
         return birthday;
     }
 
-    public Passport setBirthday(LocalDate birthday) {
+    public CreatePassengerBindingModel setBirthday(LocalDate birthday) {
         this.birthday = birthday;
         return this;
     }
 
-    @Enumerated(EnumType.STRING)
-    public NationalityEnum getNationality() {
+    @NotBlank
+    public String getNationality() {
         return nationality;
     }
 
-    public Passport setNationality(NationalityEnum nationality) {
+    public CreatePassengerBindingModel setNationality(String nationality) {
         this.nationality = nationality;
         return this;
     }
