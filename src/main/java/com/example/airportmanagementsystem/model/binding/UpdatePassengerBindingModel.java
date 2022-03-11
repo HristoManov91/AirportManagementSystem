@@ -1,32 +1,27 @@
 package com.example.airportmanagementsystem.model.binding;
 
+import com.example.airportmanagementsystem.model.entity.enums.GenderEnum;
+import com.example.airportmanagementsystem.model.entity.enums.NationalityEnum;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
 
-public class CreatePassengerBindingModel {
+public class UpdatePassengerBindingModel {
 
-    private String documentType;
     private String ownerFullName;
-    private String gender;
+    private String documentType;
     private String docNumber;
+    private String gender;
     private LocalDate expiration;
     private LocalDate birthday;
     private String nationality;
     private String description;
 
-    public CreatePassengerBindingModel() {
-    }
-
-    @NotBlank
-    public String getDocumentType() {
-        return documentType;
-    }
-
-    public CreatePassengerBindingModel setDocumentType(String documentType) {
-        this.documentType = documentType;
-        return this;
+    public UpdatePassengerBindingModel() {
     }
 
     @NotBlank
@@ -34,18 +29,18 @@ public class CreatePassengerBindingModel {
         return ownerFullName;
     }
 
-    public CreatePassengerBindingModel setOwnerFullName(String ownerFullName) {
+    public UpdatePassengerBindingModel setOwnerFullName(String ownerFullName) {
         this.ownerFullName = ownerFullName;
         return this;
     }
 
     @NotBlank
-    public String getGender() {
-        return gender;
+    public String getDocumentType() {
+        return documentType;
     }
 
-    public CreatePassengerBindingModel setGender(String gender) {
-        this.gender = gender;
+    public UpdatePassengerBindingModel setDocumentType(String documentType) {
+        this.documentType = documentType;
         return this;
     }
 
@@ -54,8 +49,18 @@ public class CreatePassengerBindingModel {
         return docNumber;
     }
 
-    public CreatePassengerBindingModel setDocNumber(String docNumber) {
+    public UpdatePassengerBindingModel setDocNumber(String docNumber) {
         this.docNumber = docNumber;
+        return this;
+    }
+
+    @NotBlank
+    public String getGender() {
+        return gender;
+    }
+
+    public UpdatePassengerBindingModel setGender(String gender) {
+        this.gender = gender;
         return this;
     }
 
@@ -66,7 +71,7 @@ public class CreatePassengerBindingModel {
         return expiration;
     }
 
-    public CreatePassengerBindingModel setExpiration(LocalDate expiration) {
+    public UpdatePassengerBindingModel setExpiration(LocalDate expiration) {
         this.expiration = expiration;
         return this;
     }
@@ -78,7 +83,7 @@ public class CreatePassengerBindingModel {
         return birthday;
     }
 
-    public CreatePassengerBindingModel setBirthday(LocalDate birthday) {
+    public UpdatePassengerBindingModel setBirthday(LocalDate birthday) {
         this.birthday = birthday;
         return this;
     }
@@ -88,7 +93,7 @@ public class CreatePassengerBindingModel {
         return nationality;
     }
 
-    public CreatePassengerBindingModel setNationality(String nationality) {
+    public UpdatePassengerBindingModel setNationality(String nationality) {
         this.nationality = nationality;
         return this;
     }
@@ -97,7 +102,7 @@ public class CreatePassengerBindingModel {
         return description;
     }
 
-    public CreatePassengerBindingModel setDescription(String description) {
+    public UpdatePassengerBindingModel setDescription(String description) {
         this.description = description;
         return this;
     }

@@ -13,7 +13,7 @@ public class Passenger extends BaseEntity {
     public Passenger() {
     }
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     public Passport getPassport() {
         return passport;
     }

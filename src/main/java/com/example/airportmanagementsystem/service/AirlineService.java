@@ -19,6 +19,5 @@ public interface AirlineService {
 
     void addAirplane(AirplaneBindingModel airplaneBindingModel);
 
-
     void createRoute(AddRouteBindingModel addRouteBindingModel);
 }

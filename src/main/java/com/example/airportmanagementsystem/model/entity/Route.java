@@ -13,6 +13,7 @@ public class Route extends BaseEntity {
     private Airport fromAirport;
     private Airport toAirport;
     private Airline airline;
+    private Boolean status;
 
     public Route() {
     }
@@ -54,6 +55,16 @@ public class Route extends BaseEntity {
 
     public Route setAirline(Airline airline) {
         this.airline = airline;
+        return this;
+    }
+
+    @Column
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public Route setStatus(Boolean status) {
+        this.status = status;
         return this;
     }
 }

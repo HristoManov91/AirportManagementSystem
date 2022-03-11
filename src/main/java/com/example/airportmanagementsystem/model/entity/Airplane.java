@@ -27,7 +27,7 @@ public class Airplane extends BaseEntity {
     private BigDecimal typicalRange;
     private Airport airport;
     private String description;
-    private AirplaneStatusEnum status;
+    private AirplaneStatusEnum status = AirplaneStatusEnum.READY;
     // Children/babies capacity
     // Engines
     // Sizes

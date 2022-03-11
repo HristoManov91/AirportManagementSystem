@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Optional;
 
 
 @Service
@@ -363,7 +362,7 @@ public class AirlineServiceImpl implements AirlineService {
     public void createRoute(AddRouteBindingModel addRouteBindingModel) {
         Airline airline = findByIataCode(addRouteBindingModel.getAirlineIataCode());
 
-        Route route = routeService.createRoute(addRouteBindingModel);
+        Route route = routeService.createRoute(airline , addRouteBindingModel);
 
         airline.getRoutes().add(route);
         //check save data
