@@ -5,7 +5,6 @@ import com.example.airportmanagementsystem.model.entity.enums.FlightStatusEnum;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.OffsetTime;
 
 @Entity
 @Table(name = "flights")
@@ -17,11 +16,11 @@ public class Flight extends BaseEntity {
     private Airplane airplane;
     private Boolean isFull;
     private FlightStatusEnum status;
-    private OffsetTime boarding;
+    private LocalDateTime boarding;
     private LocalTime flightDuration; // A time zone library can be used
     // distance (need library for this)
     // transfer
-
+    // extras
 
     public Flight() {
     }
@@ -87,11 +86,11 @@ public class Flight extends BaseEntity {
     }
 
     @Column(nullable = false)
-    public OffsetTime getBoarding() {
+    public LocalDateTime getBoarding() {
         return boarding;
     }
 
-    public Flight setBoarding(OffsetTime boarding) {
+    public Flight setBoarding(LocalDateTime boarding) {
         this.boarding = boarding;
         return this;
     }

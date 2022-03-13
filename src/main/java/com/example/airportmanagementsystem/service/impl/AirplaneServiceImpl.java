@@ -21,6 +21,30 @@ public class AirplaneServiceImpl implements AirplaneService {
     }
 
     @Override
+    public void initSeatsForPlanes() {
+        //i used this method because in data.sql need to add more 4000 rows
+        if (airplaneRepo.count() == 17){
+            airplaneRepo.save(airplaneRepo.findById(1L).orElseThrow().setSeats(seatService.createSeats(180)));
+            airplaneRepo.save(airplaneRepo.findById(2L).orElseThrow().setSeats(seatService.createSeats(170)));
+            airplaneRepo.save(airplaneRepo.findById(3L).orElseThrow().setSeats(seatService.createSeats(190)));
+            airplaneRepo.save(airplaneRepo.findById(4L).orElseThrow().setSeats(seatService.createSeats(174)));
+            airplaneRepo.save(airplaneRepo.findById(5L).orElseThrow().setSeats(seatService.createSeats(196)));
+            airplaneRepo.save(airplaneRepo.findById(6L).orElseThrow().setSeats(seatService.createSeats(210)));
+            airplaneRepo.save(airplaneRepo.findById(7L).orElseThrow().setSeats(seatService.createSeats(200)));
+            airplaneRepo.save(airplaneRepo.findById(8L).orElseThrow().setSeats(seatService.createSeats(180)));
+            airplaneRepo.save(airplaneRepo.findById(9L).orElseThrow().setSeats(seatService.createSeats(180)));
+            airplaneRepo.save(airplaneRepo.findById(10L).orElseThrow().setSeats(seatService.createSeats(160)));
+            airplaneRepo.save(airplaneRepo.findById(11L).orElseThrow().setSeats(seatService.createSeats(170)));
+            airplaneRepo.save(airplaneRepo.findById(12L).orElseThrow().setSeats(seatService.createSeats(190)));
+            airplaneRepo.save(airplaneRepo.findById(13L).orElseThrow().setSeats(seatService.createSeats(180)));
+            airplaneRepo.save(airplaneRepo.findById(14L).orElseThrow().setSeats(seatService.createSeats(200)));
+            airplaneRepo.save(airplaneRepo.findById(15L).orElseThrow().setSeats(seatService.createSeats(210)));
+            airplaneRepo.save(airplaneRepo.findById(16L).orElseThrow().setSeats(seatService.createSeats(220)));
+            airplaneRepo.save(airplaneRepo.findById(17L).orElseThrow().setSeats(seatService.createSeats(230)));
+        }
+    }
+
+    @Override
     public Airplane createAirplane(Airline airline, AirplaneBindingModel airplaneBindingModel) {
 
         if (uniqueARN(airplaneBindingModel.getARN())) {

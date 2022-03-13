@@ -5,7 +5,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.OffsetTime;
 
 public class AddFlightBindingModel {
 
@@ -13,7 +12,7 @@ public class AddFlightBindingModel {
     private LocalDateTime departure;
     private LocalDateTime arrival;
     private String airplaneARN;
-    private OffsetTime boarding;
+    private LocalDateTime boarding;
     private LocalTime flightDuration;
 
     public AddFlightBindingModel() {
@@ -63,11 +62,11 @@ public class AddFlightBindingModel {
 
     @Future
     @NotNull
-    public OffsetTime getBoarding() {
+    public LocalDateTime getBoarding() {
         return boarding;
     }
 
-    public AddFlightBindingModel setBoarding(OffsetTime boarding) {
+    public AddFlightBindingModel setBoarding(LocalDateTime boarding) {
         this.boarding = boarding;
         return this;
     }

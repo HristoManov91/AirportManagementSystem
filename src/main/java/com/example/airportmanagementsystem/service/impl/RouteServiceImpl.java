@@ -22,7 +22,7 @@ public class RouteServiceImpl implements RouteService {
     @Override
     public Route createRoute(Airline airline , AddRouteBindingModel addRouteBindingModel) {
         Route route = new Route()
-                .setRouteNum(addRouteBindingModel.getRouteNum())
+                .setRouteNum(airline.getIataCode() + addRouteBindingModel.getRouteNum())
                 .setAirline(airline)
                 .setFromAirport(airportService.findByIataCode(addRouteBindingModel.getFromAirportIataCode()))
                 .setToAirport(airportService.findByIataCode(addRouteBindingModel.getToAirportIataCode()));

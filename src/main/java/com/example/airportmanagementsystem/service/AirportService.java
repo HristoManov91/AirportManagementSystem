@@ -6,8 +6,6 @@ import com.example.airportmanagementsystem.model.entity.Airport;
 
 public interface AirportService {
 
-    void initAirports();
-
     Airport createAirport(AirportBindingModel airportBindingModel);
 
     Airport findByIataCode(String iataCode);

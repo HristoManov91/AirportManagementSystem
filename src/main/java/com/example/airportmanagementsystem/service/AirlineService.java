@@ -7,8 +7,6 @@ import com.example.airportmanagementsystem.model.entity.Airline;
 
 public interface AirlineService {
 
-    void initAirline();
-
     Airline createAirline(AirlineBindingModel airlineBindingModel);
 
     Airline findByIataCode(String iataCode);

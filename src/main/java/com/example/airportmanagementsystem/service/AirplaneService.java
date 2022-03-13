@@ -13,4 +13,6 @@ public interface AirplaneService {
     Airplane updateAirplane(AirplaneBindingModel airplaneBindingModel);
 
     void deleteAirplane(String ARN);
+
+    void initSeatsForPlanes();
 }
