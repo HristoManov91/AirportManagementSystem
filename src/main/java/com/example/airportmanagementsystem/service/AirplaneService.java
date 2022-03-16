@@ -1,8 +1,11 @@
 package com.example.airportmanagementsystem.service;
 
 import com.example.airportmanagementsystem.model.binding.AirplaneBindingModel;
+import com.example.airportmanagementsystem.model.dto.AirplaneDto;
 import com.example.airportmanagementsystem.model.entity.Airline;
 import com.example.airportmanagementsystem.model.entity.Airplane;
+
+import java.util.List;
 
 public interface AirplaneService {
 
@@ -14,5 +17,11 @@ public interface AirplaneService {
 
     void deleteAirplane(String ARN);
 
+    void deleteAirplane(Long id);
+
     void initSeatsForPlanes();
+
+    List<AirplaneDto> getAllAirplanes();
+
+    AirplaneDto getAirplaneById(Long id);
 }

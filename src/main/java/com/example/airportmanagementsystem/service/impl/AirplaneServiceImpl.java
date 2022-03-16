@@ -1,29 +1,36 @@
 package com.example.airportmanagementsystem.service.impl;
 
 import com.example.airportmanagementsystem.model.binding.AirplaneBindingModel;
+import com.example.airportmanagementsystem.model.dto.AirplaneDto;
 import com.example.airportmanagementsystem.model.entity.Airline;
 import com.example.airportmanagementsystem.model.entity.Airplane;
 import com.example.airportmanagementsystem.model.entity.enums.AirplaneStatusEnum;
 import com.example.airportmanagementsystem.repository.AirplaneRepo;
 import com.example.airportmanagementsystem.service.AirplaneService;
 import com.example.airportmanagementsystem.service.SeatService;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AirplaneServiceImpl implements AirplaneService {
 
     private final AirplaneRepo airplaneRepo;
     private final SeatService seatService;
+    private final ModelMapper modelMapper;
 
-    public AirplaneServiceImpl(AirplaneRepo airplaneRepo, SeatService seatService) {
+    public AirplaneServiceImpl(AirplaneRepo airplaneRepo, SeatService seatService, ModelMapper modelMapper) {
         this.airplaneRepo = airplaneRepo;
         this.seatService = seatService;
+        this.modelMapper = modelMapper;
     }
 
     @Override
     public void initSeatsForPlanes() {
         //i used this method because in data.sql need to add more 4000 rows
-        if (airplaneRepo.count() == 17){
+        if (seatService.count() == 0){
             airplaneRepo.save(airplaneRepo.findById(1L).orElseThrow().setSeats(seatService.createSeats(180)));
             airplaneRepo.save(airplaneRepo.findById(2L).orElseThrow().setSeats(seatService.createSeats(170)));
             airplaneRepo.save(airplaneRepo.findById(3L).orElseThrow().setSeats(seatService.createSeats(190)));
@@ -104,6 +111,50 @@ public class AirplaneServiceImpl implements AirplaneService {
     public void deleteAirplane(String ARN) {
         Airplane airplane = findByARN(ARN);
         airplaneRepo.delete(airplane);
+    }
+
+    @Override
+    public void deleteAirplane(Long id) {
+        Airplane airplane = airplaneRepo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("We don't have airplane with this " + id + " id!"));
+
+        airplaneRepo.delete(airplane);
+    }
+
+    @Override
+    public List<AirplaneDto> getAllAirplanes() {
+
+        //.findAll not a good option for a lot of data (need to Pageable)
+        return airplaneRepo.findAll().stream().map(this::asAirplane).collect(Collectors.toList());
+    }
+
+    @Override
+    public AirplaneDto getAirplaneById(Long id) {
+        Airplane airplane = airplaneRepo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("We don't have airplane with this " + id + " id!"));
+
+        return asAirplane(airplane);
+    }
+
+    private AirplaneDto asAirplane(Airplane airplane){
+
+        return new AirplaneDto()
+                .setId(airplane.getId())
+                .setManufacture(airplane.getManufacture())
+                .setModel(airplane.getModel())
+                .setARN(airplane.getARN())
+                .setAirline(airplane.getAirline().getName())
+                .setDateOfManufacture(airplane.getDateOfManufacture())
+                .setCockpitCrew(airplane.getCockpitCrew())
+                .setCountOfSeats(airplane.getSeats().size())
+                .setMaxTakeoffWeight(airplane.getMaxTakeoffWeight())
+                .setFuelCapacity((airplane.getFuelCapacity()))
+                .setFuelConsumption(airplane.getFuelConsumption())
+                .setMaxSpeed(airplane.getMaxSpeed())
+                .setTypicalRange(airplane.getTypicalRange())
+                .setAirport(airplane.getAirport().getName())
+                .setDescription(airplane.getDescription())
+                .setStatus(airplane.getStatus());
     }
 
     private boolean uniqueARN(String arn) {

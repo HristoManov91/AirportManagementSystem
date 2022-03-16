@@ -5,6 +5,7 @@ import com.example.airportmanagementsystem.model.binding.UpdatePassengerBindingM
 import com.example.airportmanagementsystem.model.dto.CreatePassportDto;
 import com.example.airportmanagementsystem.model.entity.Passenger;
 import com.example.airportmanagementsystem.model.entity.Passport;
+import com.example.airportmanagementsystem.model.entity.Ticket;
 import com.example.airportmanagementsystem.model.entity.enums.GenderEnum;
 import com.example.airportmanagementsystem.model.entity.enums.NationalityEnum;
 import com.example.airportmanagementsystem.repository.PassengerRepo;
@@ -23,6 +24,17 @@ public class PassengerServiceImpl implements PassengerService {
     public PassengerServiceImpl(PassengerRepo passengerRepo, PassportService passportService) {
         this.passengerRepo = passengerRepo;
         this.passportService = passportService;
+    }
+
+    @Override
+    public Passenger initPassenger(Ticket ticket, Passport passport, String description) {
+
+        Passenger passenger = new Passenger()
+                .setTicket(ticket)
+                .setPassport(passport)
+                .setDescription(description);
+
+        return passengerRepo.save(passenger);
     }
 
     @Override
@@ -59,5 +71,10 @@ public class PassengerServiceImpl implements PassengerService {
                 .orElseThrow(() -> new IllegalArgumentException("We don't have a passenger with this " + docNum + " document number!"));
 
         passengerRepo.delete(passenger);
+    }
+
+    @Override
+    public long count() {
+        return passengerRepo.count();
     }
 }

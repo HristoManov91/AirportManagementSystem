@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Ticket extends BaseEntity {
 
     private Flight flight;
-    private String seat;
+    private Seat seat;
     private Integer countSuitcases; // need other class with different params
     private TicketStatus status;
     private TicketClass ticketClazz;
@@ -28,12 +28,12 @@ public class Ticket extends BaseEntity {
         return this;
     }
 
-    @Column(nullable = false)
-    public String getSeat() {
+    @OneToOne
+    public Seat getSeat() {
         return seat;
     }
 
-    public Ticket setSeat(String seat) {
+    public Ticket setSeat(Seat seat) {
         this.seat = seat;
         return this;
     }

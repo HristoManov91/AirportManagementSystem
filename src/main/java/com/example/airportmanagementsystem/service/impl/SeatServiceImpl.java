@@ -50,4 +50,15 @@ public class SeatServiceImpl implements SeatService {
     public void deleteSeat(Long id) {
         seatRepo.deleteById(id);
     }
+
+    @Override
+    public Seat getSeatById(long id) {
+        return seatRepo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("We don't have seat with this " + id + " IATA name!"));
+    }
+
+    @Override
+    public long count() {
+        return seatRepo.count();
+    }
 }

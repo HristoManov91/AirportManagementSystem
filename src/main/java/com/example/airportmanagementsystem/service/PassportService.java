@@ -12,4 +12,6 @@ public interface PassportService {
     boolean isExistWithDocNum(String docNumber);
 
     Passport createPassport(CreatePassportDto createPassportDto);
+
+    Passport getById(long id);
 }

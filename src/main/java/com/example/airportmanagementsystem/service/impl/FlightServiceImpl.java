@@ -19,11 +19,16 @@ public class FlightServiceImpl implements FlightService {
         this.routeService = routeService;
     }
 
-
     @Override
     public void createFlight(AddFlightBindingModel addFlightBindingModel, Airplane airplane) {
         Flight flight = new Flight()
                 .setDestination(routeService.findByRouteNum(addFlightBindingModel.getRouteNum()))
                 .setAirplane(airplane);//ToDo
+    }
+
+    @Override
+    public Flight getFlightById(long id) {
+        return flightRepo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("We don't have flight with this " + id + " id!"));
     }
 }

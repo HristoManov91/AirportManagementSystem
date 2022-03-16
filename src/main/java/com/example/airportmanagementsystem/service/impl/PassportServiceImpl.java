@@ -35,6 +35,12 @@ public class PassportServiceImpl implements PassportService {
     }
 
     @Override
+    public Passport getById(long id) {
+        return passportRepo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("We don't have a passport with this " + id + " id!"));
+    }
+
+    @Override
     public boolean isExistWithDocNum(String docNumber) {
         return passportRepo.findByDocNumber(docNumber).isPresent();
     }

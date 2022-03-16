@@ -6,6 +6,7 @@ import com.example.airportmanagementsystem.model.entity.Flight;
 
 public interface FlightService {
 
-
     void createFlight(AddFlightBindingModel addFlightBindingModel, Airplane airplane);
+
+    Flight getFlightById(long id);
 }

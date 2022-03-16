@@ -9,13 +9,11 @@ import com.example.airportmanagementsystem.model.entity.Route;
 import com.example.airportmanagementsystem.repository.AirlineRepo;
 import com.example.airportmanagementsystem.service.AirlineService;
 import com.example.airportmanagementsystem.service.AirplaneService;
-import com.example.airportmanagementsystem.service.FlightService;
 import com.example.airportmanagementsystem.service.RouteService;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.List;
 
 
 @Service
@@ -24,13 +22,13 @@ public class AirlineServiceImpl implements AirlineService {
     private final AirlineRepo airlineRepo;
     private final AirplaneService airplaneService;
     private final RouteService routeService;
-    private final FlightService flightService;
+    private final ModelMapper modelMapper;
 
-    public AirlineServiceImpl(AirlineRepo airlineRepo, AirplaneService airplaneService, RouteService routeService, FlightService flightService) {
+    public AirlineServiceImpl(AirlineRepo airlineRepo, AirplaneService airplaneService, RouteService routeService, ModelMapper modelMapper) {
         this.airlineRepo = airlineRepo;
         this.airplaneService = airplaneService;
         this.routeService = routeService;
-        this.flightService = flightService;
+        this.modelMapper = modelMapper;
     }
 
     @Override
@@ -68,6 +66,13 @@ public class AirlineServiceImpl implements AirlineService {
     }
 
     @Override
+    public Airline findByName(String name) {
+
+        return airlineRepo.findAirlineByName(name)
+                .orElseThrow(() -> new IllegalArgumentException("We don't have airline with this " + name + " name!"));
+    }
+
+    @Override
     public Airline updateAirline(AirlineBindingModel airlineBindingModel) {
         Airline airline = findByIataCode(airlineBindingModel.getIataCode());
 
@@ -98,6 +103,11 @@ public class AirlineServiceImpl implements AirlineService {
     }
 
     @Override
+    public List<AirlineBindingModel> getAllAirlines() {
+        return null;
+    }
+
+    @Override
     public void addAirplane(AirplaneBindingModel airplaneBindingModel) {
         Airline airline = airlineRepo
                 .findAirlineByName(airplaneBindingModel.getAirlineName())
@@ -118,6 +128,4 @@ public class AirlineServiceImpl implements AirlineService {
     private boolean uniqueName(String name) {
         return airlineRepo.findAirlineByName(name).isPresent();
     }
-
-
 }
