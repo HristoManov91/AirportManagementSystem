@@ -7,6 +7,7 @@ import com.example.airportmanagementsystem.model.entity.Airplane;
 import com.example.airportmanagementsystem.service.AirlineService;
 import com.example.airportmanagementsystem.service.AirplaneService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -25,7 +26,8 @@ public class AirplaneRestController {
         this.airlineService = airlineService;
     }
 
-    @GetMapping("/")
+    @Transactional
+    @GetMapping()
     public ResponseEntity<List<AirplaneDto>> findAllAirplanes() {
         List<AirplaneDto> allAirplanes = airplaneService.getAllAirplanes();
 

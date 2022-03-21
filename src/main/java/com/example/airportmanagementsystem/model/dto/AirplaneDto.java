@@ -4,8 +4,6 @@ import com.example.airportmanagementsystem.model.entity.enums.AirplaneStatusEnum
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class AirplaneDto {
 

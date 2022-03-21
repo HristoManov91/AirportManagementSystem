@@ -1,6 +1,5 @@
 package com.example.airportmanagementsystem.init;
 
-import com.example.airportmanagementsystem.model.binding.CreatePassengerBindingModel;
 import com.example.airportmanagementsystem.model.entity.enums.TicketClass;
 import com.example.airportmanagementsystem.model.entity.enums.TicketStatus;
 import com.example.airportmanagementsystem.service.*;

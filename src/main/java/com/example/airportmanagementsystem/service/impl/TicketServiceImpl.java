@@ -15,13 +15,9 @@ import org.springframework.stereotype.Service;
 public class TicketServiceImpl implements TicketService {
 
     private final TicketRepo ticketRepo;
-    private final FlightService flightService;
-    private final PassengerService passengerService;
 
-    public TicketServiceImpl(TicketRepo ticketRepo, FlightService flightService, PassengerService passengerService) {
+    public TicketServiceImpl(TicketRepo ticketRepo) {
         this.ticketRepo = ticketRepo;
-        this.flightService = flightService;
-        this.passengerService = passengerService;
     }
 
     @Override

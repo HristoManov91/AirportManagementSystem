@@ -1,20 +1,9 @@
 const ROUTE_PREFIX = "http://localhost:8080/";
-async function getData() {
-    const response = await fetch(ROUTE_PREFIX + "/airplanes");
 
-    const data = await response.json();
-    data.forEach(airplane => airplanes.push(airplane));
+let airplanesBtn = document.getElementById('loadAirplanes');
+airplanesBtn.addEventListener('click', loadAllAirplanes())
 
-}
-
-getData();
-
-document.getElementById('loadAirplanes').addEventListener('click', loadAllAirplanes())
-
-const airplanes = [];
-
-function loadAllAirplanes() {
-    //Table
+function createAirplanesTable() {
     let tableElement = document.querySelector('table');
     tableElement.innerHTML = '';
 
@@ -83,27 +72,34 @@ function loadAllAirplanes() {
 
     theadElement.append(trElement);
     tableElement.append(theadElement);
+}
 
-    //Rows
+function loadAllAirplanes() {
+    createAirplanesTable();
+    let tableElement = document.querySelector('table');
     let tbodyElement = document.createElement('tbody');
-    airplanes.forEach(airplane => {
-        let tableRow = document.createElement('tr');
-        tableRow.innerHTML = '<td>' + airplane.manufacture + '</td>' +
-            '<td>' + airplane.model + '</td>' +
-            '<td>' + airplane.ARN + '</td>' +
-            '<td>' + airplane.airline + '</td>' +
-            '<td>' + airplane.dateOfManufacture + '</td>' +
-            '<td>' + airplane.cockpitCrew + '</td>' +
-            '<td>' + airplane.countOfSeats + '</td>' +
-            '<td>' + airplane.maxTakeoffWeight + '</td>' +
-            '<td>' + airplane.fuelCapacity + '</td>' +
-            '<td>' + airplane.fuelConsumption + '</td>' +
-            '<td>' + airplane.maxSpeed + '</td>' +
-            '<td>' + airplane.typicalRange + '</td>' +
-            '<td>' + airplane.airport + '</td>' +
-            '<td>' + airplane.description + '</td>' +
-            '<td>' + airplane.status + '</td>'
+    fetch(ROUTE_PREFIX + 'airplanes')
+        .then(response => response.json())
+        .then(json => json.forEach(airplane => {
+            let tableRow = document.createElement('tr');
+            tableRow.innerHTML = '<td>' + airplane.manufacture + '</td>' +
+                '<td>' + airplane.model + '</td>' +
+                '<td>' + airplane.ARN + '</td>' +
+                '<td>' + airplane.airline + '</td>' +
+                '<td>' + airplane.dateOfManufacture + '</td>' +
+                '<td>' + airplane.cockpitCrew + '</td>' +
+                '<td>' + airplane.countOfSeats + '</td>' +
+                '<td>' + airplane.maxTakeoffWeight + '</td>' +
+                '<td>' + airplane.fuelCapacity + '</td>' +
+                '<td>' + airplane.fuelConsumption + '</td>' +
+                '<td>' + airplane.maxSpeed + '</td>' +
+                '<td>' + airplane.typicalRange + '</td>' +
+                '<td>' + airplane.airport + '</td>' +
+                '<td>' + airplane.description + '</td>' +
+                '<td>' + airplane.status + '</td>'
 
-        tbodyElement.append(tableRow);
-    })
+            tbodyElement.append(tableRow);
+        }));
+
+    tableElement.appendChild(tbodyElement);
 }

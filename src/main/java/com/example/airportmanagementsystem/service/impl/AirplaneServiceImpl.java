@@ -10,6 +10,7 @@ import com.example.airportmanagementsystem.service.AirplaneService;
 import com.example.airportmanagementsystem.service.SeatService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,18 +20,16 @@ public class AirplaneServiceImpl implements AirplaneService {
 
     private final AirplaneRepo airplaneRepo;
     private final SeatService seatService;
-    private final ModelMapper modelMapper;
 
-    public AirplaneServiceImpl(AirplaneRepo airplaneRepo, SeatService seatService, ModelMapper modelMapper) {
+    public AirplaneServiceImpl(AirplaneRepo airplaneRepo, SeatService seatService) {
         this.airplaneRepo = airplaneRepo;
         this.seatService = seatService;
-        this.modelMapper = modelMapper;
     }
 
     @Override
     public void initSeatsForPlanes() {
         //i used this method because in data.sql need to add more 4000 rows
-        if (seatService.count() == 0){
+        if (seatService.count() == 0) {
             airplaneRepo.save(airplaneRepo.findById(1L).orElseThrow().setSeats(seatService.createSeats(180)));
             airplaneRepo.save(airplaneRepo.findById(2L).orElseThrow().setSeats(seatService.createSeats(170)));
             airplaneRepo.save(airplaneRepo.findById(3L).orElseThrow().setSeats(seatService.createSeats(190)));
@@ -90,7 +89,7 @@ public class AirplaneServiceImpl implements AirplaneService {
         // there may be a situation where one company buys another plane it is necessary to write logic for that as well
 
         // if count of seats is different delete old and create new seats
-        if (airplane.getSeats().size() != airplaneBindingModel.getCountOfSeats()){
+        if (airplane.getSeats().size() != airplaneBindingModel.getCountOfSeats()) {
             airplane.getSeats().forEach(s -> seatService.deleteSeat(s.getId()));
             airplane.setSeats(seatService.createSeats(airplaneBindingModel.getCountOfSeats()));
         }
@@ -124,19 +123,18 @@ public class AirplaneServiceImpl implements AirplaneService {
     @Override
     public List<AirplaneDto> getAllAirplanes() {
 
-        //.findAll not a good option for a lot of data (need to Pageable)
         return airplaneRepo.findAll().stream().map(this::asAirplane).collect(Collectors.toList());
     }
 
     @Override
     public AirplaneDto getAirplaneById(Long id) {
-        Airplane airplane = airplaneRepo.findById(id)
+        Airplane airplane = airplaneRepo.getAirplaneByIdWithFetch(id)
                 .orElseThrow(() -> new IllegalArgumentException("We don't have airplane with this " + id + " id!"));
 
         return asAirplane(airplane);
     }
 
-    private AirplaneDto asAirplane(Airplane airplane){
+    private AirplaneDto asAirplane(Airplane airplane) {
 
         return new AirplaneDto()
                 .setId(airplane.getId())

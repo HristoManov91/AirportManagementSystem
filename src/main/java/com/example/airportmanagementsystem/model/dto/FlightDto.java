@@ -1,6 +1,5 @@
 package com.example.airportmanagementsystem.model.dto;
 
-import com.example.airportmanagementsystem.model.entity.Airplane;
 import com.example.airportmanagementsystem.model.entity.Route;
 import com.example.airportmanagementsystem.model.entity.enums.FlightStatusEnum;
 
